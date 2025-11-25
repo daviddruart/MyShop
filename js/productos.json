@@ -1,0 +1,72 @@
+[
+	{
+		"id": "cuadro-01",
+		"titulo": "Akali — Lienzo Nocturno",
+		"imagen": "./img/cuadros/Akali01.jpg",
+		"categoria": { "nombre": "Cuadros", "id": "cuadros" },
+		"precio": 120000
+	},
+	{
+		"id": "cuadro-02",
+		"titulo": "Dark — Sombras y Color",
+		"imagen": "./img/cuadros/Dark01.jpg",
+		"categoria": { "nombre": "Cuadros", "id": "cuadros" },
+		"precio": 95000
+	},
+	{
+		"id": "cuadro-03",
+		"titulo": "Jinx — Estampa Pop",
+		"imagen": "./img/cuadros/jinx01.jpg",
+		"categoria": { "nombre": "Cuadros", "id": "cuadros" },
+		"precio": 85000
+	},
+	{
+		"id": "cuadro-04",
+		"titulo": "Sally — Tono Melancólico",
+		"imagen": "./img/cuadros/Sally01.jpg",
+		"categoria": { "nombre": "Cuadros", "id": "cuadros" },
+		"precio": 78000
+	},
+	{
+		"id": "escultura-01",
+		"titulo": "Alien — Forma Orgánica",
+		"imagen": "./img/esculturas/alien-escl.jpeg",
+		"categoria": { "nombre": "Esculturas", "id": "esculturas" },
+		"precio": 140000
+	},
+	{
+		"id": "escultura-02",
+		"titulo": "Gato — Curvas",
+		"imagen": "./img/esculturas/gato-escl.jpeg",
+		"categoria": { "nombre": "Esculturas", "id": "esculturas" },
+		"precio": 110000
+	},
+	{
+		"id": "escultura-03",
+		"titulo": "Hollow Knight — Reverencia",
+		"imagen": "./img/esculturas/hollowknight-escl.jpeg",
+		"categoria": { "nombre": "Esculturas", "id": "esculturas" },
+		"precio": 160000
+	},
+	{
+		"id": "mas-01",
+		"titulo": "Pluma — Decorativa",
+		"imagen": "./img/mas/pluma-m.jpeg",
+		"categoria": { "nombre": "Más", "id": "mas" },
+		"precio": 25000
+	},
+	{
+		"id": "mas-02",
+		"titulo": "Vaso — Cerámica",
+		"imagen": "./img/mas/vaso-m.jpeg",
+		"categoria": { "nombre": "Más", "id": "mas" },
+		"precio": 30000
+	},
+	{
+		"id": "mas-03",
+		"titulo": "Vela — Aromática",
+		"imagen": "./img/mas/vela-m.jpeg",
+		"categoria": { "nombre": "Más", "id": "mas" },
+		"precio": 15000
+	}
+]
