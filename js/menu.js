@@ -5,15 +5,31 @@
 const openMenu = document.querySelector("#open-menu");
 const closeMenu = document.querySelector("#close-menu");
 const aside = document.querySelector("aside");
+const overlay = document.querySelector('#overlay');
+
+if (overlay) {
+  overlay.addEventListener('click', (e) => {
+    hideAside();
+  });
+  overlay.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    hideAside();
+  }, { passive: false });
+  overlay.addEventListener('pointerdown', (e) => {
+    hideAside();
+  });
+}
 
 // Función auxiliar: añade/quita clase de forma segura
 function showAside() {
 if (!aside) return;
 aside.classList.add("aside-visible");
+  if (overlay) overlay.classList.add('visible');
 }
 function hideAside() {
 if (!aside) return;
 aside.classList.remove("aside-visible");
+  if (overlay) overlay.classList.remove('visible');
 }
 
 // Fallback visual force: aplica estilos inline si por alguna razón la clase no se muestra
@@ -37,7 +53,8 @@ openMenu.addEventListener("click", (e) => {
     // Toggle para que funcione tanto abrir como cerrar con el mismo botón
     if (!aside) return;
     console.log('menu: click openMenu, aside before toggle:', aside.className);
-    aside.classList.toggle("aside-visible");
+  aside.classList.toggle("aside-visible");
+  if (overlay) overlay.classList.toggle('visible');
     // Evitar que el listener global de document cierre inmediatamente el aside
     e.stopPropagation();
     // Si tras toggle la clase no hizo efecto visual (problemas CSS en móvil), aplicamos fallback
@@ -56,7 +73,8 @@ openMenu.addEventListener("touchstart", (e) => {
     e.preventDefault();
     if (!aside) return;
     console.log('menu: touchstart openMenu');
-    aside.classList.toggle("aside-visible");
+  aside.classList.toggle("aside-visible");
+  if (overlay) overlay.classList.toggle('visible');
     e.stopPropagation();
     setTimeout(() => {
       const visible = aside.classList.contains('aside-visible');
@@ -68,7 +86,8 @@ openMenu.addEventListener("pointerdown", (e) => {
     e.preventDefault();
     if (!aside) return;
     console.log('menu: pointerdown openMenu');
-    aside.classList.toggle("aside-visible");
+  aside.classList.toggle("aside-visible");
+  if (overlay) overlay.classList.toggle('visible');
     e.stopPropagation();
     setTimeout(() => {
       const visible = aside.classList.contains('aside-visible');
