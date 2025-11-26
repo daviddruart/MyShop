@@ -1,4 +1,6 @@
 [
+
+        /* Cuadros */
 	{
 		"id": "cuadro-01",
 		"titulo": "Akali — Lienzo Nocturno",
@@ -27,6 +29,8 @@
 		"categoria": { "nombre": "Cuadros", "id": "cuadros" },
 		"precio": 78000
 	},
+
+        /* Esculturas */
 	{
 		"id": "escultura-01",
 		"titulo": "Alien — Forma Orgánica",
@@ -48,6 +52,8 @@
 		"categoria": { "nombre": "Esculturas", "id": "esculturas" },
 		"precio": 160000
 	},
+
+        /* Más */
 	{
 		"id": "mas-01",
 		"titulo": "Pluma — Decorativa",

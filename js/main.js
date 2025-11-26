@@ -4,7 +4,20 @@ fetch("./js/productos.json")
 	.then(response => response.json())
 	.then(data => {
 		productos = data;
-		cargarProductos(productos);
+		// Si hay una categoría en la URL, seleccionarla
+		const url = new URL(window.location.href);
+		const category = url.searchParams.get('category');
+		if (category) {
+			// Buscar si existe un boton con ese id y disparar su click
+			const boton = Array.from(botonesCategorias).find(b => b.id === category);
+			if (boton) {
+				boton.click();
+			} else {
+				cargarProductos(productos);
+			}
+		} else {
+			cargarProductos(productos);
+		}
 	})
 	.catch(err => console.error('No se pudo cargar productos.json', err));
 
