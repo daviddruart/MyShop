@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagos - Artelleria</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="./CSS/main.css">
+    <link rel="stylesheet" href="./CSS/pagos.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <header class="header-mobile">
+            <h1 class="logo">Artelleria</h1>
+            <a href="./carrito.html" class="btn-volver">
+                <i class="bi bi-arrow-left"></i>
+            </a>
+        </header>
+
+        <main>
+            <div class="pagos-container">
+                <div class="pagos-form-section">
+                    <h2 class="pagos-titulo">Datos de Pago</h2>
+                    
+                    <form id="form-pagos" class="pagos-form">
+                        <!-- Nombre -->
+                        <div class="form-group">
+                            <label for="cliente-nombre">Nombre Completo *</label>
+                            <input 
+                                type="text" 
+                                id="cliente-nombre" 
+                                name="cliente_nombre" 
+                                placeholder="Ej: Juan Pérez"
+                                required
+                            >
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="cliente-email">Email *</label>
+                            <input 
+                                type="email" 
+                                id="cliente-email" 
+                                name="cliente_email" 
+                                placeholder="Ej: juan@example.com"
+                                required
+                            >
+                        </div>
+
+                        <!-- Teléfono -->
+                        <div class="form-group">
+                            <label for="cliente-telefono">Teléfono</label>
+                            <input 
+                                type="tel" 
+                                id="cliente-telefono" 
+                                name="cliente_telefono" 
+                                placeholder="Ej: +57 310 1234567"
+                            >
+                        </div>
+
+                        <!-- Dirección -->
+                        <div class="form-group">
+                            <label for="cliente-direccion">Dirección *</label>
+                            <input 
+                                type="text" 
+                                id="cliente-direccion" 
+                                name="cliente_direccion" 
+                                placeholder="Ej: Cra 5 #12-34, Apt 501"
+                                required
+                            >
+                        </div>
+
+                        <!-- Ciudad -->
+                        <div class="form-group">
+                            <label for="cliente-ciudad">Ciudad *</label>
+                            <input 
+                                type="text" 
+                                id="cliente-ciudad" 
+                                name="cliente_ciudad" 
+                                placeholder="Ej: Bogotá"
+                                required
+                            >
+                        </div>
+
+                        <!-- Código Postal -->
+                        <div class="form-group">
+                            <label for="cliente-codigo-postal">Código Postal</label>
+                            <input 
+                                type="text" 
+                                id="cliente-codigo-postal" 
+                                name="cliente_codigo_postal" 
+                                placeholder="Ej: 110111"
+                            >
+                        </div>
+
+                        <!-- Notas adicionales -->
+                        <div class="form-group">
+                            <label for="cliente-notas">Notas (Instrucciones de entrega)</label>
+                            <textarea 
+                                id="cliente-notas" 
+                                name="cliente_notas" 
+                                placeholder="Ej: Entregar antes de las 5 PM"
+                                rows="3"
+                            ></textarea>
+                        </div>
+
+                        <!-- Botones -->
+                        <div class="pagos-botones">
+                            <a href="./carrito.html" class="btn-cancelar">
+                                <i class="bi bi-arrow-left"></i> Volver
+                            </a>
+                            <button type="submit" class="btn-pagar">
+                                <i class="bi bi-credit-card"></i> Completar Compra
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Resumen del carrito -->
+                <div class="pagos-resumen-section">
+                    <h3 class="pagos-resumen-titulo">Resumen de Orden</h3>
+                    
+                    <div id="pagos-resumen-productos" class="pagos-resumen-productos">
+                        <!-- Se rellenará con JS -->
+                    </div>
+
+                    <div class="pagos-resumen-total">
+                        <p>Subtotal:</p>
+                        <p id="pagos-subtotal">$0</p>
+                    </div>
+                    <div class="pagos-resumen-total">
+                        <p>Envío:</p>
+                        <p id="pagos-envio">Gratis</p>
+                    </div>
+                    <div class="pagos-resumen-total pagos-resumen-grand-total">
+                        <p>Total a Pagar:</p>
+                        <p id="pagos-grand-total">$0</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/pagos.js"></script>
+</body>
+</html>

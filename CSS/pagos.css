@@ -1,0 +1,246 @@
+/* ============ ESTILOS DE PAGOS ============ */
+
+.pagos-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pagos-form-section,
+.pagos-resumen-section {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pagos-titulo {
+    color: var(--clr-main);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--clr-accent);
+    padding-bottom: 1rem;
+}
+
+.pagos-resumen-titulo {
+    color: var(--clr-main);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--clr-accent);
+    padding-bottom: 1rem;
+}
+
+/* ============ FORMULARIO ============ */
+
+.pagos-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    color: var(--clr-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--clr-accent);
+    border-radius: 0.5rem;
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.95rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--clr-main);
+    box-shadow: 0 0 0 3px rgba(135, 24, 16, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    font-family: 'Rubik', sans-serif;
+}
+
+/* ============ BOTONES ============ */
+
+.pagos-botones {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+.btn-cancelar,
+.btn-pagar {
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+.btn-cancelar {
+    background-color: var(--clr-gray);
+    color: var(--clr-main);
+}
+
+.btn-cancelar:hover {
+    background-color: #ddd;
+}
+
+.btn-pagar {
+    background-color: var(--clr-main);
+    color: white;
+}
+
+.btn-pagar:hover {
+    background-color: var(--clr-main-light);
+    transform: translateY(-2px);
+}
+
+.btn-pagar:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-volver {
+    background: transparent;
+    border: none;
+    color: var(--clr-gray);
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* ============ RESUMEN ============ */
+
+.pagos-resumen-productos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--clr-gray);
+}
+
+.pagos-producto-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    font-size: 0.9rem;
+}
+
+.pagos-producto-nombre {
+    color: var(--clr-dark);
+    font-weight: 500;
+    flex: 1;
+}
+
+.pagos-producto-cantidad {
+    color: var(--clr-main);
+    font-weight: 600;
+    margin: 0 0.75rem;
+}
+
+.pagos-producto-precio {
+    color: var(--clr-main-light);
+    font-weight: 600;
+    text-align: right;
+    min-width: 70px;
+}
+
+.pagos-resumen-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    color: var(--clr-dark);
+    font-size: 0.95rem;
+}
+
+.pagos-resumen-total p:last-child {
+    font-weight: 600;
+    color: var(--clr-main);
+}
+
+.pagos-resumen-grand-total {
+    padding: 1rem 0;
+    border-top: 2px solid var(--clr-accent);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.pagos-resumen-grand-total p:last-child {
+    color: var(--clr-main-light);
+    font-size: 1.2rem;
+}
+
+/* ============ RESPONSIVO ============ */
+
+@media (max-width: 900px) {
+    .pagos-container {
+        grid-template-columns: 1fr;
+    }
+
+    .pagos-form-section,
+    .pagos-resumen-section {
+        padding: 1.5rem;
+    }
+
+    .pagos-botones {
+        flex-direction: column;
+    }
+
+    .btn-cancelar,
+    .btn-pagar {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        margin: 1rem;
+    }
+
+    .pagos-form-section,
+    .pagos-resumen-section {
+        padding: 1rem;
+    }
+
+    .pagos-titulo,
+    .pagos-resumen-titulo {
+        font-size: 1.3rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.65rem 0.75rem;
+        font-size: 16px; /* Evita zoom en iOS */
+    }
+
+    .pagos-botones {
+        gap: 0.5rem;
+    }
+}

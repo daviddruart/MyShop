@@ -1,25 +1,30 @@
 let productos = [];
 
-fetch("./js/productos.json")
-	.then(response => response.json())
+// Configuración de la API
+const API_URL = 'http://localhost:5000';
+
+// Cargar productos desde la API Flask
+fetch(`${API_URL}/api/productos`)
+	.then(response => {
+		if (!response.ok) throw new Error(`Error: ${response.status}`);
+		return response.json();
+	})
 	.then(data => {
 		productos = data;
-		// Si hay una categoría en la URL, seleccionarla
-		const url = new URL(window.location.href);
-		const category = url.searchParams.get('category');
-		if (category) {
-			// Buscar si existe un boton con ese id y disparar su click
-			const boton = Array.from(botonesCategorias).find(b => b.id === category);
-			if (boton) {
-				boton.click();
-			} else {
-				cargarProductos(productos);
-			}
-		} else {
-			cargarProductos(productos);
-		}
+		cargarProductos(productos);
 	})
-	.catch(err => console.error('No se pudo cargar productos.json', err));
+	.catch(err => {
+		console.error('No se pudo cargar productos de la API:', err);
+		// Fallback al JSON local si la API falla
+		fetch("./js/productos.json")
+			.then(response => response.json())
+			.then(data => {
+				productos = data;
+				cargarProductos(productos);
+				console.warn('Usando productos.json local como fallback');
+			})
+			.catch(err2 => console.error('Ambas fuentes fallaron:', err2));
+	});
 
 
 const contenedorProductos = document.querySelector("#contenedor-productos");
@@ -68,9 +73,17 @@ botonesCategorias.forEach(boton => {
 		e.currentTarget.classList.add("active");
 
 		if (e.currentTarget.id != "todos") {
-			const productoCategoria = productos.find(producto => producto.categoria.id === e.currentTarget.id);
-			if (productoCategoria) tituloPrincipal.innerText = productoCategoria.categoria.nombre;
-			const productosBoton = productos.filter(producto => producto.categoria.id === e.currentTarget.id);
+			// Obtener categoría seleccionada
+			const categoriaId = e.currentTarget.id;
+			
+			// Buscar nombre de categoría en los productos cargados (fallback)
+			const productoCategoria = productos.find(producto => producto.categoria.id === categoriaId);
+			if (productoCategoria && tituloPrincipal) {
+				tituloPrincipal.innerText = productoCategoria.categoria.nombre;
+			}
+			
+			// Filtrar productos en memoria (rápido) o desde API
+			const productosBoton = productos.filter(producto => producto.categoria.id === categoriaId);
 			cargarProductos(productosBoton);
 		} else {
 			if (tituloPrincipal) tituloPrincipal.innerText = "Todos los productos";

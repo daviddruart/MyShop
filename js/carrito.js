@@ -1,3 +1,6 @@
+// Configuración de la API
+const API_URL = 'http://localhost:5000';
+
 // Recuperar carrito desde localStorage con comprobaciones
 let productosEnCarrito = [];
 const productosEnCarritoLS = localStorage.getItem("productos-en-carrito");
@@ -122,13 +125,14 @@ function vaciarCarrito() {
 			focusConfirm: false,
 			confirmButtonText: 'Sí',
 			cancelButtonText: 'No'
-		}).then((result) => {
+		}).then((result) => 
+            {
 			if (result.isConfirmed) {
 				productosEnCarrito.length = 0;
 				localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
 				cargarProductosCarrito();
 			}
-		  })
+		    })
 	} else {
 		// Fallback sin Swal
 		if (confirm(`Se van a borrar ${totalItems} productos. ¿Continuar?`)) {
@@ -147,13 +151,20 @@ function actualizarTotal() {
 
 if (botonComprar) botonComprar.addEventListener("click", comprarCarrito);
 function comprarCarrito() {
+	// Validar que haya productos
+	if (!productosEnCarrito || productosEnCarrito.length === 0) {
+		if (typeof Swal === 'function') {
+			Swal.fire({
+				title: 'Carrito vacío',
+				icon: 'warning',
+				text: 'Agrega productos antes de continuar con la compra.'
+			});
+		} else {
+			alert('El carrito está vacío. Agrega productos antes de comprar.');
+		}
+		return;
+	}
 
-	productosEnCarrito.length = 0;
-	localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
-    
-	if (contenedorCarritoVacio) contenedorCarritoVacio.classList.add("disabled");
-	if (contenedorCarritoProductos) contenedorCarritoProductos.classList.add("disabled");
-	if (contenedorCarritoAcciones) contenedorCarritoAcciones.classList.add("disabled");
-	if (contenedorCarritoComprado) contenedorCarritoComprado.classList.remove("disabled");
-
+	// Redirigir a la página de pagos
+	window.location.href = './pagos.html';
 }
