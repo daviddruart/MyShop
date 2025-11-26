@@ -154,20 +154,27 @@ main {
     gap: 1rem;
 }
 
-.producto {
-    position: relative;
-    overflow: visible; /* permitir que .producto-detalles se superponga */
+.producto-imagen {
+    max-width: 100%;
+    border-radius: 1rem;
 }
 
-.producto-imagen {
+/* Nuevo: wrapper para imágenes de producto — mantiene tamaño uniforme y fondo negro */
+.producto-imagen-wrap {
     width: 100%;
-    height: 220px; /* altura fija para uniformidad */
-    object-fit: contain; /* mantener la proporción sin recortar */
-    object-position: center;
-    display: block;
-    background-color: #000; /* rellena con negro si la imagen no ocupa todo */
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
+    height: 200px; /* altura fija por defecto */
+    background-color: var(--clr-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.producto-imagen-wrap img.producto-imagen {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* no estira la imagen, la encaja dentro */
 }
 
 .producto-detalles {
@@ -315,10 +322,6 @@ main {
     .contenedor-productos {
         grid-template-columns: 1fr 1fr;
     }
-
-    .producto-imagen {
-        height: 180px;
-    }
 }
 
 @media screen and (max-width: 600px) {
@@ -345,18 +348,6 @@ main {
         transform: translateX(0);
         opacity: 1;
         visibility: visible;
-    }
-
-    /* Overlay que aparece detrás del aside en pantallas pequeñas */
-    .overlay {
-        display: none;
-    }
-    .overlay.visible {
-        display: block;
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.45);
-        z-index: 8;
     }
 
     .boton-menu.active::before,
@@ -424,9 +415,5 @@ main {
 @media screen and (max-width: 400px) {
     .contenedor-productos {
         grid-template-columns: 1fr;
-    }
-
-    .producto-imagen {
-        height: 160px;
     }
 }
