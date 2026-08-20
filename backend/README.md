@@ -120,6 +120,6 @@ Puedes ajustar esto en `app.py` en la línea `CORS(app, origins=[...])`.
 - El servidor está en modo debug por defecto. Cambia `debug=True` a `debug=False` en producción.
 - En producción, utiliza un servidor WSGI como Gunicorn: `gunicorn app:app`.
 
-## Siguiente: Integración con Frontend
+## Integración con Frontend
 
-Actualiza `js/main.js` y `js/carrito.js` para consumir esta API en lugar del JSON local.
+La portada activa (`HTML/index.html`) y la ficha de producto (`producto.html`) consumen esta API y usan `js/productos.json` como respaldo local. El carrito y los pagos mantienen su flujo en `js/carrito.js` y `js/pagos.js`.
