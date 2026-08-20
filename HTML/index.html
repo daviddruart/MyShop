@@ -17,24 +17,35 @@
 
   <header class="site-header">
     <nav class="site-nav" aria-label="Navegación principal">
-      <a href="./index.html" class="logo"><span class="logo-eye"></span>MYSHOP</a>
+      <a href="./index.html" class="logo">
+        <span class="logo-skull" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="26" height="26">
+              <path class="skull-bone" d="M20 4C11 4 4 11 4 19c0 5.5 2.8 9 5 11v5c0 1.4 1.3 2.5 2.7 2.5h1.8v-4h1.4v4h2.2v-4h1.4v4h2.2v-4h1.4v4h1.8c1.4 0 2.7-1.1 2.7-2.5v-5c2.2-2 5-5.5 5-11C36 11 29 4 20 4z"/>
+              <circle class="skull-eye left" cx="14" cy="18" r="3.4"/>
+              <circle class="skull-eye right" cx="26" cy="18" r="3.4"/>
+              <path class="skull-nose" d="M20 22l-2 4h4l-2-4z"/>
+            </svg>
+        </span>
+        Artęlleria
+      </a>
       <div class="nav-links">
         <a href="#categorias">Galería</a>
         <a href="#tendencia">Destacados</a>
         <a href="#historias">Historias</a>
       </div>
-      <a href="../carrito.html" class="nav-cart">Carrito (<span id="numerito">0</span>)</a>
+      <a href="../carrito.html" class="nav-cart">
+        <span class="cart-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="20" height="20">
+            <path class="cart-body" d="M6 8h4l2.2 16.4c.2 1.5 1.5 2.6 3 2.6h13.6c1.5 0 2.8-1.1 3-2.6L34 13H12" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle class="cart-wheel" cx="17" cy="33" r="2.2"/>
+            <circle class="cart-wheel" cx="27" cy="33" r="2.2"/>
+          </svg>
+        </span>
+        Carrito (<span id="numerito">0</span>)
+      </a>
       <button class="burger" id="open-menu" type="button" aria-label="Abrir menú" aria-expanded="false"><i class="bi bi-list"></i></button>
     </nav>
   </header>
-
-  <aside class="mobile-menu" aria-label="Menú móvil">
-    <button class="close-menu" id="close-menu" type="button" aria-label="Cerrar menú"><i class="bi bi-x-lg"></i></button>
-    <a href="#categorias">Galería</a>
-    <a href="#tendencia">Destacados</a>
-    <a href="#historias">Historias</a>
-    <a href="../carrito.html">Carrito (<span id="mobile-numerito">0</span>)</a>
-  </aside>
   <div class="overlay" id="overlay" aria-hidden="true"></div>
 
   <main>
@@ -43,16 +54,16 @@
         <div class="hero-copy">
           <span class="eyebrow">Colección urbana / 2026</span>
           <h1 class="hero-title">Haz que<br>tu espacio<br><span>hable.</span></h1>
-          <p class="hero-sub">Arte, esculturas y objetos con carácter para quienes no decoran: construyen atmósferas.</p>
+          <p class="hero-sub">Arte, esculturas y moda con carácter para quienes no decoran: construyen atmósferas.</p>
           <div class="btn-row">
             <a href="#tendencia" class="btn btn-primary">Explorar colección</a>
-            <a href="#historias" class="btn btn-ghost">Conocer MyShop</a>
+            <a href="#historias" class="btn btn-ghost">Conocer Artęlleria</a>
           </div>
         </div>
         <div class="hero-visual" aria-label="Pieza destacada de la colección">
           <img src="../img/esculturas/alien-escl.jpeg" alt="Escultura Alien destacada">
           <div class="hero-visual-shade"></div>
-          <span class="hero-tag">// pieza destacada — 01</span>
+          <span class="hero-tag"><!-- ESPACIO PARA ESCRIBIR ALGO EN LA IMAGEN --></span>
         </div>
       </div>
     </section>
@@ -66,10 +77,22 @@
           <p>Piezas seleccionadas para darle una voz propia a cada rincón.</p>
         </div>
         <div class="cat-grid">
-          <button class="cat-card reveal boton-categoria active" id="todos" data-glyph="A" type="button"><span>Todo</span><small>10 piezas</small></button>
-          <button class="cat-card reveal boton-categoria" id="cuadros" data-glyph="C" type="button"><span>Cuadros</span><small>4 piezas</small></button>
-          <button class="cat-card reveal boton-categoria" id="esculturas" data-glyph="E" type="button"><span>Esculturas</span><small>3 piezas</small></button>
-          <button class="cat-card reveal boton-categoria" id="mas" data-glyph="+" type="button"><span>Más objetos</span><small>3 piezas</small></button>
+          <button class="cat-card reveal boton-categoria" id="todos" type="button">
+            <i class="bi bi-grid-fill cat-icon" aria-hidden="true"></i>
+            <span>Todo</span><small>10 piezas</small>
+          </button>
+          <button class="cat-card reveal boton-categoria" id="cuadros" type="button">
+            <i class="bi bi-image cat-icon" aria-hidden="true"></i>
+            <span>Cuadros</span><small>4 piezas</small>
+          </button>
+          <button class="cat-card reveal boton-categoria" id="esculturas" type="button">
+            <i class="bi bi-gem cat-icon" aria-hidden="true"></i>
+            <span>Esculturas</span><small>3 piezas</small>
+          </button>
+          <button class="cat-card reveal boton-categoria" id="Estilo" type="button">
+            <i class="bi bi-stars cat-icon" aria-hidden="true"></i>
+            <span>Estilo</span><small>3 piezas</small>
+          </button>
         </div>
       </div>
     </section>
@@ -122,12 +145,24 @@
 
   <footer>
     <div class="foot-grid">
-      <div class="foot-brand"><a href="./index.html" class="logo"><span class="logo-eye"></span>MYSHOP</a><p>Arte y objetos para espacios con carácter. Curado en Colombia.</p></div>
+      <div class="foot-brand"><a href="./index.html" class="logo">
+        <span class="logo-skull" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="26" height="26">
+              <path class="skull-bone" d="M20 4C11 4 4 11 4 19c0 5.5 2.8 9 5 11v5c0 1.4 1.3 2.5 2.7 2.5h1.8v-4h1.4v4h2.2v-4h1.4v4h2.2v-4h1.4v4h1.8c1.4 0 2.7-1.1 2.7-2.5v-5c2.2-2 5-5.5 5-11C36 11 29 4 20 4z"/>
+              <circle class="skull-eye left" cx="14" cy="18" r="3.4"/>
+              <circle class="skull-eye right" cx="26" cy="18" r="3.4"/>
+              <path class="skull-nose" d="M20 22l-2 4h4l-2-4z"/>
+            </svg>
+        </span>
+        Artęlleria
+      </a>
+      <p>Arte y objetos para espacios con carácter. Curado en Colombia.</p>
+      </div>
       <div><h4>Galería</h4><ul><li><a href="#cuadros">Cuadros</a></li><li><a href="#esculturas">Esculturas</a></li><li><a href="#mas">Más objetos</a></li></ul></div>
       <div><h4>Soporte</h4><ul><li><a href="../carrito.html">Carrito</a></li><li><a href="../pagos.html">Pagos</a></li><li><a href="#">Envíos</a></li></ul></div>
       <div><h4>Síguenos</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">TikTok</a></li><li><a href="#">Facebook</a></li></ul></div>
     </div>
-    <div class="foot-bottom"><span>© 2026 MyShop. Todos los derechos reservados.</span><span>Bogotá, Colombia</span></div>
+    <div class="foot-bottom"><span>© 2026 Artęlleria. Todos los derechos reservados.</span><span>Bogotá, Colombia</span></div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
