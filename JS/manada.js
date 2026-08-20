@@ -75,3 +75,47 @@ fetch(`${API_URL}/api/productos`).then((respuesta) => {
 });
 
 actualizarNumeritos();
+
+
+const catCards = document.querySelectorAll('.cat-card');
+const catTimers = new Map();
+
+function obtenerImagenesCategoria(categoriaId) {
+  const lista = categoriaId === 'todos'
+    ? productos
+    : productos.filter((producto) => producto.categoria.id === categoriaId);
+  return lista.map((producto) => `../${producto.imagen}`);
+}
+
+function iniciarPreview(card) {
+  if (!productos.length) return;
+  const imagenes = obtenerImagenesCategoria(card.id);
+  if (!imagenes.length) return;
+
+  const [imgA, imgB] = card.querySelectorAll('.preview-img');
+  let indice = 0;
+  imgA.src = imagenes[indice];
+  imgA.classList.add('active');
+
+  const timer = setInterval(() => {
+    indice = (indice + 1) % imagenes.length;
+    const activo = card.querySelector('.preview-img.active');
+    const siguiente = activo === imgA ? imgB : imgA;
+    siguiente.src = imagenes[indice];
+    siguiente.classList.add('active');
+    activo.classList.remove('active');
+  }, 1500);
+
+  catTimers.set(card, timer);
+}
+
+function detenerPreview(card) {
+  clearInterval(catTimers.get(card));
+  catTimers.delete(card);
+  card.querySelectorAll('.preview-img').forEach((img) => img.classList.remove('active'));
+}
+
+catCards.forEach((card) => {
+  card.addEventListener('mouseenter', () => iniciarPreview(card));
+  card.addEventListener('mouseleave', () => detenerPreview(card));
+});
