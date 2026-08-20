@@ -676,7 +676,7 @@ input:focus-visible {
 .blog-img-three {
   background:
     linear-gradient(135deg, rgba(18, 17, 16, 0.3), rgba(255, 177, 60, 0.45)),
-    url("../img/mas/vela-m.jpeg") center/cover;
+    url("../img/esculturas/vela-m.jpeg") center/cover;
 }
 .blog-body {
   padding: 20px;
