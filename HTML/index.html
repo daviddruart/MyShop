@@ -17,24 +17,35 @@
 
   <header class="site-header">
     <nav class="site-nav" aria-label="Navegación principal">
-      <a href="./index.html" class="logo"><span class="logo-eye"></span>MYSHOP</a>
+      <a href="./index.html" class="logo">
+        <span class="logo-skull" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="26" height="26">
+              <path class="skull-bone" d="M20 4C11 4 4 11 4 19c0 5.5 2.8 9 5 11v5c0 1.4 1.3 2.5 2.7 2.5h1.8v-4h1.4v4h2.2v-4h1.4v4h2.2v-4h1.4v4h1.8c1.4 0 2.7-1.1 2.7-2.5v-5c2.2-2 5-5.5 5-11C36 11 29 4 20 4z"/>
+              <circle class="skull-eye left" cx="14" cy="18" r="3.4"/>
+              <circle class="skull-eye right" cx="26" cy="18" r="3.4"/>
+              <path class="skull-nose" d="M20 22l-2 4h4l-2-4z"/>
+            </svg>
+        </span>
+        Artęlleria
+      </a>
       <div class="nav-links">
         <a href="#categorias">Galería</a>
         <a href="#tendencia">Destacados</a>
         <a href="#historias">Historias</a>
       </div>
-      <a href="../carrito.html" class="nav-cart">Carrito (<span id="numerito">0</span>)</a>
+      <a href="../carrito.html" class="nav-cart">
+        <span class="cart-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="20" height="20">
+            <path class="cart-body" d="M6 8h4l2.2 16.4c.2 1.5 1.5 2.6 3 2.6h13.6c1.5 0 2.8-1.1 3-2.6L34 13H12" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle class="cart-wheel" cx="17" cy="33" r="2.2"/>
+            <circle class="cart-wheel" cx="27" cy="33" r="2.2"/>
+          </svg>
+        </span>
+        Carrito (<span id="numerito">0</span>)
+      </a>
       <button class="burger" id="open-menu" type="button" aria-label="Abrir menú" aria-expanded="false"><i class="bi bi-list"></i></button>
     </nav>
   </header>
-
-  <aside class="mobile-menu" aria-label="Menú móvil">
-    <button class="close-menu" id="close-menu" type="button" aria-label="Cerrar menú"><i class="bi bi-x-lg"></i></button>
-    <a href="#categorias">Galería</a>
-    <a href="#tendencia">Destacados</a>
-    <a href="#historias">Historias</a>
-    <a href="../carrito.html">Carrito (<span id="mobile-numerito">0</span>)</a>
-  </aside>
   <div class="overlay" id="overlay" aria-hidden="true"></div>
 
   <main>
@@ -43,16 +54,16 @@
         <div class="hero-copy">
           <span class="eyebrow">Colección urbana / 2026</span>
           <h1 class="hero-title">Haz que<br>tu espacio<br><span>hable.</span></h1>
-          <p class="hero-sub">Arte, esculturas y objetos con carácter para quienes no decoran: construyen atmósferas.</p>
+          <p class="hero-sub">Arte, esculturas y moda con carácter para quienes no decoran: construyen atmósferas.</p>
           <div class="btn-row">
             <a href="#tendencia" class="btn btn-primary">Explorar colección</a>
-            <a href="#historias" class="btn btn-ghost">Conocer MyShop</a>
+            <a href="#historias" class="btn btn-ghost">Conocer Artęlleria</a>
           </div>
         </div>
         <div class="hero-visual" aria-label="Pieza destacada de la colección">
           <img src="../img/esculturas/alien-escl.jpeg" alt="Escultura Alien destacada">
           <div class="hero-visual-shade"></div>
-          <span class="hero-tag">// pieza destacada — 01</span>
+          <span class="hero-tag"><!-- ESPACIO PARA ESCRIBIR ALGO EN LA IMAGEN --></span>
         </div>
       </div>
     </section>
@@ -66,10 +77,38 @@
           <p>Piezas seleccionadas para darle una voz propia a cada rincón.</p>
         </div>
         <div class="cat-grid">
-          <button class="cat-card reveal boton-categoria active" id="todos" data-glyph="A" type="button"><span>Todo</span><small>10 piezas</small></button>
-          <button class="cat-card reveal boton-categoria" id="cuadros" data-glyph="C" type="button"><span>Cuadros</span><small>4 piezas</small></button>
-          <button class="cat-card reveal boton-categoria" id="esculturas" data-glyph="E" type="button"><span>Esculturas</span><small>3 piezas</small></button>
-          <button class="cat-card reveal boton-categoria" id="mas" data-glyph="+" type="button"><span>Más objetos</span><small>3 piezas</small></button>
+          <button class="cat-card reveal boton-categoria" id="todos" type="button">
+            <div class="cat-preview" aria-hidden="true">
+              <img class="preview-img" alt="">
+              <img class="preview-img" alt="">
+            </div>
+            <i class="bi bi-grid-fill cat-icon" aria-hidden="true"></i>
+            <span>Todo</span><small>11 piezas</small>
+          </button>
+          <button class="cat-card reveal boton-categoria" id="cuadros" type="button">
+            <div class="cat-preview" aria-hidden="true">
+              <img class="preview-img" alt="">
+              <img class="preview-img" alt="">
+            </div>
+            <i class="bi bi-image cat-icon" aria-hidden="true"></i>
+            <span>Cuadros</span><small>4 piezas</small>
+          </button>
+          <button class="cat-card reveal boton-categoria" id="esculturas" type="button">
+            <div class="cat-preview" aria-hidden="true">
+              <img class="preview-img" alt="">
+              <img class="preview-img" alt="">
+            </div>
+            <i class="bi bi-gem cat-icon" aria-hidden="true"></i>
+            <span>Esculturas</span><small>6 piezas</small>
+          </button>
+          <button class="cat-card reveal boton-categoria" id="Estilo" type="button">
+            <div class="cat-preview" aria-hidden="true">
+              <img class="preview-img" alt="">
+              <img class="preview-img" alt="">
+            </div>
+            <i class="bi bi-stars cat-icon" aria-hidden="true"></i>
+            <span>Estilo</span><small>1 pieza</small>
+          </button>
         </div>
       </div>
     </section>
@@ -77,7 +116,7 @@
     <section class="trending" id="tendencia">
       <div class="section-shell">
         <div class="section-head reveal">
-          <div><span class="label">Selección MyShop</span><h2 id="titulo-principal">Todos los productos</h2></div>
+          <div><span class="label">Selección Artęlleria</span><h2 id="titulo-principal">Todos los productos</h2></div>
           <p>Obras y objetos que cambian la energía de un espacio.</p>
         </div>
         <div id="contenedor-productos" class="product-grid" aria-live="polite"></div>
@@ -88,10 +127,10 @@
 
     <section class="manifesto">
       <p>No llenamos espacios.<br>Los convertimos en <em>presencia</em>.</p>
-      <span class="label">Manifiesto MyShop — 2026</span>
+      <span class="label">Manifiesto Artęlleria — 2026</span>
     </section>
 
-    <section class="testimonials" id="historias">
+    <section class="testimonials">
       <div class="section-shell">
         <div class="section-head reveal"><div><span class="label">Voces reales</span><h2>Lo que dice la comunidad</h2></div></div>
         <div class="test-grid">
@@ -102,13 +141,49 @@
       </div>
     </section>
 
-    <section class="blog">
+    <section class="blog" id="historias">
       <div class="section-shell">
         <div class="section-head reveal"><div><span class="label">Desde el taller</span><h2>Últimas historias</h2></div></div>
         <div class="blog-grid">
-          <article class="blog-card reveal"><div class="blog-img blog-img-one"></div><div class="blog-body"><span class="meta">12 Ago 2026 · 2 min</span><h3>Cómo elegir una pieza que transforme tu sala</h3><a href="#">Leer historia <span aria-hidden="true">→</span></a></div></article>
-          <article class="blog-card reveal"><div class="blog-img blog-img-two"></div><div class="blog-body"><span class="meta">28 Jul 2026 · 3 min</span><h3>Objetos con historia para espacios vivos</h3><a href="#">Leer historia <span aria-hidden="true">→</span></a></div></article>
-          <article class="blog-card reveal"><div class="blog-img blog-img-three"></div><div class="blog-body"><span class="meta">10 Jul 2026 · 2 min</span><h3>Guía rápida para regalar arte sin fallar</h3><a href="#">Leer historia <span aria-hidden="true">→</span></a></div></article>
+          <article class="blog-card reveal">
+            <div class="blog-img blog-img-one"></div>
+            <div class="blog-body">
+              <span class="meta">12 Ago 2026</span>
+              <h3>Cómo elegir una pieza que transforme tu sala</h3>
+              <a href="#" class="leer-historia"
+                data-producto-id="cuadro-01"
+                data-instagram="#"
+                data-historia="Elegir una pieza para la sala no es decorar, es declarar. Antes de comprar por impulso, mira la luz del espacio a distintas horas, la escala de la pared y qué quieres que la gente sienta al entrar. Una obra bien elegida no compite con el resto del cuarto: le da un centro. En Artęlleria seleccionamos cada pieza pensando en esa primera mirada.">
+                Leer historia <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+          <article class="blog-card reveal">
+            <div class="blog-img blog-img-two"></div>
+            <div class="blog-body">
+              <span class="meta">28 Jul 2026</span>
+              <h3>Objetos con historia para espacios vivos</h3>
+              <a href="#" class="leer-historia"
+                data-producto-id="escultura-02"
+                data-instagram="#"
+                data-historia="Un espacio vivo no se llena, se cura. Cada escultura que sale del taller pasa por manos que conocen su origen, su textura, su peso real. No buscamos objetos de relleno: buscamos piezas que generen una pausa, una pregunta, una conversación. Así es como un rincón cualquiera se convierte en un lugar con memoria.">
+                Leer historia <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+          <article class="blog-card reveal">
+            <div class="blog-img blog-img-three"></div>
+            <div class="blog-body">
+              <span class="meta">10 Jul 2026</span>
+              <h3>Guía rápida para regalar arte sin fallar</h3>
+              <a href="#" class="leer-historia"
+                data-producto-id="mas-03"
+                data-instagram="#"
+                data-historia="Regalar arte da miedo porque parece muy personal — y lo es, esa es la gracia. La clave no es adivinar el gusto exacto del otro, sino elegir algo con carácter propio que abra una historia nueva en su espacio. Una pieza pequeña, bien elegida, dice más que cualquier objeto genérico. Aquí te dejamos cómo pensamos cada regalo que armamos.">
+                Leer historia <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -121,14 +196,56 @@
   </main>
 
   <footer>
+    <div class="historia-modal" id="historia-modal" aria-hidden="true">
+      <div class="historia-backdrop" id="historia-backdrop"></div>
+      <div class="historia-panel" role="dialog" aria-modal="true" aria-labelledby="historia-titulo">
+        <button class="historia-cerrar" id="historia-cerrar" type="button" aria-label="Cerrar historia">
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <div class="historia-producto">
+          <img id="historia-imagen" src="" alt="">
+          <div class="historia-producto-info">
+            <span class="cat" id="historia-cat"></span>
+            <h3 id="historia-producto-titulo"></h3>
+            <span class="historia-precio" id="historia-precio"></span>
+            <button class="producto-agregar" id="historia-agregar" type="button">Agregar al carrito</button>
+          </div>
+        </div>
+        <div class="historia-contenido">
+            <span class="meta" id="historia-fecha"></span>
+            <h2 id="historia-titulo"></h2>
+            <p id="historia-texto"></p>
+            <a id="historia-instagram" class="historia-instagram" href="#" target="_blank" rel="noopener">
+              <i class="bi bi-instagram"></i> Ver en Instagram
+          </a>
+        </div>
+      </div>
+    </div>
+
+
     <div class="foot-grid">
-      <div class="foot-brand"><a href="./index.html" class="logo"><span class="logo-eye"></span>MYSHOP</a><p>Arte y objetos para espacios con carácter. Curado en Colombia.</p></div>
-      <div><h4>Galería</h4><ul><li><a href="#cuadros">Cuadros</a></li><li><a href="#esculturas">Esculturas</a></li><li><a href="#mas">Más objetos</a></li></ul></div>
+      <div class="foot-brand"><a href="./index.html" class="logo">
+        <span class="logo-skull" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="26" height="26">
+              <path class="skull-bone" d="M20 4C11 4 4 11 4 19c0 5.5 2.8 9 5 11v5c0 1.4 1.3 2.5 2.7 2.5h1.8v-4h1.4v4h2.2v-4h1.4v4h2.2v-4h1.4v4h1.8c1.4 0 2.7-1.1 2.7-2.5v-5c2.2-2 5-5.5 5-11C36 11 29 4 20 4z"/>
+              <circle class="skull-eye left" cx="14" cy="18" r="3.4"/>
+              <circle class="skull-eye right" cx="26" cy="18" r="3.4"/>
+              <path class="skull-nose" d="M20 22l-2 4h4l-2-4z"/>
+            </svg>
+        </span>
+        Artęlleria
+      </a>
+      <p>Arte y objetos para espacios con carácter. Creado en Colombia.</p>
+      </div>
+      <div><h4>Galería</h4><ul><li><a href="#cuadros">Cuadros</a></li><li><a href="#esculturas">Esculturas</a></li><li><a href="#Estilo">Estilo</a></li></ul></div>
       <div><h4>Soporte</h4><ul><li><a href="../carrito.html">Carrito</a></li><li><a href="../pagos.html">Pagos</a></li><li><a href="#">Envíos</a></li></ul></div>
       <div><h4>Síguenos</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">TikTok</a></li><li><a href="#">Facebook</a></li></ul></div>
     </div>
-    <div class="foot-bottom"><span>© 2026 MyShop. Todos los derechos reservados.</span><span>Bogotá, Colombia</span></div>
+    <div class="foot-bottom"><span>© 2026 Artęlleria. Todos los derechos reservados.</span><span>Bogotá, Colombia</span></div>
   </footer>
+
+  
+  
 
   <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   <script src="../JS/manada.js"></script>

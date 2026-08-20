@@ -75,3 +75,95 @@ fetch(`${API_URL}/api/productos`).then((respuesta) => {
 });
 
 actualizarNumeritos();
+
+
+const catCards = document.querySelectorAll('.cat-card');
+const catTimers = new Map();
+
+function obtenerImagenesCategoria(categoriaId) {
+  const lista = categoriaId === 'todos'
+    ? productos
+    : productos.filter((producto) => producto.categoria.id === categoriaId);
+  return lista.map((producto) => `../${producto.imagen}`);
+}
+
+function iniciarPreview(card) {
+  if (!productos.length) return;
+  const imagenes = obtenerImagenesCategoria(card.id);
+  if (!imagenes.length) return;
+
+  const [imgA, imgB] = card.querySelectorAll('.preview-img');
+  let indice = 0;
+  imgA.src = imagenes[indice];
+  imgA.classList.add('active');
+
+  const timer = setInterval(() => {
+    indice = (indice + 1) % imagenes.length;
+    const activo = card.querySelector('.preview-img.active');
+    const siguiente = activo === imgA ? imgB : imgA;
+    siguiente.src = imagenes[indice];
+    siguiente.classList.add('active');
+    activo.classList.remove('active');
+  }, 1500);
+
+  catTimers.set(card, timer);
+}
+
+function detenerPreview(card) {
+  clearInterval(catTimers.get(card));
+  catTimers.delete(card);
+  card.querySelectorAll('.preview-img').forEach((img) => img.classList.remove('active'));
+}
+
+catCards.forEach((card) => {
+  card.addEventListener('mouseenter', () => iniciarPreview(card));
+  card.addEventListener('mouseleave', () => detenerPreview(card));
+});
+
+
+const historiaModal = document.querySelector('#historia-modal');
+const historiaBackdrop = document.querySelector('#historia-backdrop');
+const historiaCerrar = document.querySelector('#historia-cerrar');
+
+function abrirHistoria(enlace) {
+  const productoId = enlace.dataset.productoId;
+  const producto = productos.find((item) => item.id === productoId);
+  if (!producto) return;
+
+  document.querySelector('#historia-imagen').src = `../${producto.imagen}`;
+  document.querySelector('#historia-imagen').alt = producto.titulo;
+  document.querySelector('#historia-cat').textContent = producto.categoria.nombre;
+  document.querySelector('#historia-producto-titulo').textContent = producto.titulo;
+  document.querySelector('#historia-precio').textContent = `$${producto.precio}`;
+  document.querySelector('#historia-agregar').id = producto.id;
+
+  document.querySelector('#historia-fecha').textContent = enlace.closest('.blog-card').querySelector('.meta').textContent;
+  document.querySelector('#historia-titulo').textContent = enlace.closest('.blog-card').querySelector('h3').textContent;
+  document.querySelector('#historia-texto').textContent = enlace.dataset.historia;
+  document.querySelector('#historia-instagram').href = enlace.dataset.instagram || '#';
+
+  historiaModal.classList.add('abierto');
+  historiaModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function cerrarHistoria() {
+  historiaModal.classList.remove('abierto');
+  historiaModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.leer-historia').forEach((enlace) => {
+  enlace.addEventListener('click', (evento) => {
+    evento.preventDefault();
+    abrirHistoria(evento.currentTarget);
+  });
+});
+
+historiaCerrar?.addEventListener('click', cerrarHistoria);
+historiaBackdrop?.addEventListener('click', cerrarHistoria);
+document.addEventListener('keydown', (evento) => {
+  if (evento.key === 'Escape' && historiaModal.classList.contains('abierto')) cerrarHistoria();
+});
+
+document.querySelector('#historia-agregar')?.addEventListener('click', agregarAlCarrito);
