@@ -119,3 +119,51 @@ catCards.forEach((card) => {
   card.addEventListener('mouseenter', () => iniciarPreview(card));
   card.addEventListener('mouseleave', () => detenerPreview(card));
 });
+
+
+const historiaModal = document.querySelector('#historia-modal');
+const historiaBackdrop = document.querySelector('#historia-backdrop');
+const historiaCerrar = document.querySelector('#historia-cerrar');
+
+function abrirHistoria(enlace) {
+  const productoId = enlace.dataset.productoId;
+  const producto = productos.find((item) => item.id === productoId);
+  if (!producto) return;
+
+  document.querySelector('#historia-imagen').src = `../${producto.imagen}`;
+  document.querySelector('#historia-imagen').alt = producto.titulo;
+  document.querySelector('#historia-cat').textContent = producto.categoria.nombre;
+  document.querySelector('#historia-producto-titulo').textContent = producto.titulo;
+  document.querySelector('#historia-precio').textContent = `$${producto.precio}`;
+  document.querySelector('#historia-agregar').id = producto.id;
+
+  document.querySelector('#historia-fecha').textContent = enlace.closest('.blog-card').querySelector('.meta').textContent;
+  document.querySelector('#historia-titulo').textContent = enlace.closest('.blog-card').querySelector('h3').textContent;
+  document.querySelector('#historia-texto').textContent = enlace.dataset.historia;
+  document.querySelector('#historia-instagram').href = enlace.dataset.instagram || '#';
+
+  historiaModal.classList.add('abierto');
+  historiaModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function cerrarHistoria() {
+  historiaModal.classList.remove('abierto');
+  historiaModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.leer-historia').forEach((enlace) => {
+  enlace.addEventListener('click', (evento) => {
+    evento.preventDefault();
+    abrirHistoria(evento.currentTarget);
+  });
+});
+
+historiaCerrar?.addEventListener('click', cerrarHistoria);
+historiaBackdrop?.addEventListener('click', cerrarHistoria);
+document.addEventListener('keydown', (evento) => {
+  if (evento.key === 'Escape' && historiaModal.classList.contains('abierto')) cerrarHistoria();
+});
+
+document.querySelector('#historia-agregar')?.addEventListener('click', agregarAlCarrito);

@@ -130,7 +130,7 @@
       <span class="label">Manifiesto Artęlleria — 2026</span>
     </section>
 
-    <section class="testimonials" id="historias">
+    <section class="testimonials">
       <div class="section-shell">
         <div class="section-head reveal"><div><span class="label">Voces reales</span><h2>Lo que dice la comunidad</h2></div></div>
         <div class="test-grid">
@@ -141,13 +141,49 @@
       </div>
     </section>
 
-    <section class="blog">
+    <section class="blog" id="historias">
       <div class="section-shell">
         <div class="section-head reveal"><div><span class="label">Desde el taller</span><h2>Últimas historias</h2></div></div>
         <div class="blog-grid">
-          <article class="blog-card reveal"><div class="blog-img blog-img-one"></div><div class="blog-body"><span class="meta">12 Ago 2026</span><h3>Cómo elegir una pieza que transforme tu sala</h3><a href="#">Leer historia <span aria-hidden="true">→</span></a></div></article>
-          <article class="blog-card reveal"><div class="blog-img blog-img-two"></div><div class="blog-body"><span class="meta">28 Jul 2026</span><h3>Objetos con historia para espacios vivos</h3><a href="#">Leer historia <span aria-hidden="true">→</span></a></div></article>
-          <article class="blog-card reveal"><div class="blog-img blog-img-three"></div><div class="blog-body"><span class="meta">10 Jul 2026</span><h3>Guía rápida para regalar arte sin fallar</h3><a href="#">Leer historia <span aria-hidden="true">→</span></a></div></article>
+          <article class="blog-card reveal">
+            <div class="blog-img blog-img-one"></div>
+            <div class="blog-body">
+              <span class="meta">12 Ago 2026</span>
+              <h3>Cómo elegir una pieza que transforme tu sala</h3>
+              <a href="#" class="leer-historia"
+                data-producto-id="cuadro-01"
+                data-instagram="#"
+                data-historia="Elegir una pieza para la sala no es decorar, es declarar. Antes de comprar por impulso, mira la luz del espacio a distintas horas, la escala de la pared y qué quieres que la gente sienta al entrar. Una obra bien elegida no compite con el resto del cuarto: le da un centro. En Artęlleria seleccionamos cada pieza pensando en esa primera mirada.">
+                Leer historia <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+          <article class="blog-card reveal">
+            <div class="blog-img blog-img-two"></div>
+            <div class="blog-body">
+              <span class="meta">28 Jul 2026</span>
+              <h3>Objetos con historia para espacios vivos</h3>
+              <a href="#" class="leer-historia"
+                data-producto-id="escultura-02"
+                data-instagram="#"
+                data-historia="Un espacio vivo no se llena, se cura. Cada escultura que sale del taller pasa por manos que conocen su origen, su textura, su peso real. No buscamos objetos de relleno: buscamos piezas que generen una pausa, una pregunta, una conversación. Así es como un rincón cualquiera se convierte en un lugar con memoria.">
+                Leer historia <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+          <article class="blog-card reveal">
+            <div class="blog-img blog-img-three"></div>
+            <div class="blog-body">
+              <span class="meta">10 Jul 2026</span>
+              <h3>Guía rápida para regalar arte sin fallar</h3>
+              <a href="#" class="leer-historia"
+                data-producto-id="mas-03"
+                data-instagram="#"
+                data-historia="Regalar arte da miedo porque parece muy personal — y lo es, esa es la gracia. La clave no es adivinar el gusto exacto del otro, sino elegir algo con carácter propio que abra una historia nueva en su espacio. Una pieza pequeña, bien elegida, dice más que cualquier objeto genérico. Aquí te dejamos cómo pensamos cada regalo que armamos.">
+                Leer historia <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -160,6 +196,33 @@
   </main>
 
   <footer>
+    <div class="historia-modal" id="historia-modal" aria-hidden="true">
+      <div class="historia-backdrop" id="historia-backdrop"></div>
+      <div class="historia-panel" role="dialog" aria-modal="true" aria-labelledby="historia-titulo">
+        <button class="historia-cerrar" id="historia-cerrar" type="button" aria-label="Cerrar historia">
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <div class="historia-producto">
+          <img id="historia-imagen" src="" alt="">
+          <div class="historia-producto-info">
+            <span class="cat" id="historia-cat"></span>
+            <h3 id="historia-producto-titulo"></h3>
+            <span class="historia-precio" id="historia-precio"></span>
+            <button class="producto-agregar" id="historia-agregar" type="button">Agregar al carrito</button>
+          </div>
+        </div>
+        <div class="historia-contenido">
+            <span class="meta" id="historia-fecha"></span>
+            <h2 id="historia-titulo"></h2>
+            <p id="historia-texto"></p>
+            <a id="historia-instagram" class="historia-instagram" href="#" target="_blank" rel="noopener">
+              <i class="bi bi-instagram"></i> Ver en Instagram
+          </a>
+        </div>
+      </div>
+    </div>
+
+
     <div class="foot-grid">
       <div class="foot-brand"><a href="./index.html" class="logo">
         <span class="logo-skull" aria-hidden="true">
@@ -180,6 +243,9 @@
     </div>
     <div class="foot-bottom"><span>© 2026 Artęlleria. Todos los derechos reservados.</span><span>Bogotá, Colombia</span></div>
   </footer>
+
+  
+  
 
   <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   <script src="../JS/manada.js"></script>
